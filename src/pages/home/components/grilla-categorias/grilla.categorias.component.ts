@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CATEGORIAS } from './grilla.categorias.mock';
 import { Categoria } from '../categoria/categoria.model';
- 
+import { CategoriaService } from '../categoria/categoria.service'; 
+
 @Component({
   selector: 'grilla-categorias',
   templateUrl: './grilla.categorias.component.html'
@@ -9,10 +9,14 @@ import { Categoria } from '../categoria/categoria.model';
 })
 export class GrillaCategoriasComponent implements OnInit {
   categorias: Categoria[] = [];
-  constructor() { }
+  constructor(private categoriaService: CategoriaService) { }
  
   ngOnInit() {
-      this.categorias = CATEGORIAS;
+     this.getCategorias(); 
+  }
+
+  getCategorias(): void {
+   this.categoriaService.getCategorias().subscribe(categorias => this.categorias = categorias)
   }
  
 }

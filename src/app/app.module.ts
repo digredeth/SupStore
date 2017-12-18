@@ -8,9 +8,10 @@ import { ListPage } from '../pages/list/list';
 import { CategoriaComponent } from '../pages/home/components/categoria/categoria.component';
 import { GrillaCategoriasComponent } from '../pages/home/components/grilla-categorias/grilla.categorias.component'
 import { HeadSliderComponent } from '../pages/home/components/head-slider/head.slider.component';
-
+import { CategoriaService } from '../pages/home/components/categoria/categoria.service'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { EvenOddPipe } from '../pages/home/pipes/evenodd.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     CategoriaComponent,
     GrillaCategoriasComponent,
-    HeadSliderComponent
+    HeadSliderComponent,
+    EvenOddPipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    CategoriaService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
